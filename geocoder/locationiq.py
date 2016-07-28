@@ -38,11 +38,11 @@ class LocationIQ(Base):
 
     @property
     def lat(self):
-        return self.parse['lat']
+        return float(self.parse['lat'])
 
     @property
     def lng(self):
-        return self.parse['lon']
+        return float(self.parse['lon'])
 
     @property
     def latlng(self):
