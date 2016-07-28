@@ -187,6 +187,9 @@ class Base(object):
 
     def _build_tree(self, content, last=''):
         if content:
+            if isinstance(content, list) and len(content) > 0:
+                content = content[0]
+
             if isinstance(content, dict):
                 for key, value in content.items():
                     # Rebuild the tree if value is a dictionary

@@ -28,6 +28,7 @@ from geocoder.distance import Distance
 from geocoder.geolytica import Geolytica
 from geocoder.freegeoip import FreeGeoIP
 from geocoder.canadapost import Canadapost
+from geocoder.locationiq import LocationIQ
 from geocoder.geocodefarm import GeocodeFarm
 from geocoder.w3w_reverse import W3WReverse
 from geocoder.osm_reverse import OsmReverse
@@ -41,6 +42,7 @@ from geocoder.yandex_reverse import YandexReverse
 from geocoder.mapquest_reverse import MapquestReverse
 from geocoder.opencage_reverse import OpenCageReverse
 from geocoder.geocodefarm_reverse import GeocodeFarmReverse
+
 
 # Google Services
 from geocoder.google import Google
@@ -90,6 +92,7 @@ options = {
     },
     'geolytica': {'geocode': Geolytica},
     'canadapost': {'geocode': Canadapost},
+    'locationiq': {'geocode': LocationIQ},
     'opencage': {
         'geocode': OpenCage,
         'reverse': OpenCageReverse,
@@ -427,6 +430,13 @@ def canadapost(location, **kwargs):
     :param ``country``: (default=ca) Geofenced query by country.
     """
     return get(location, provider='canadapost', **kwargs)
+
+
+def locationiq(location, **kwargs):
+    """LocationIQ Provider
+
+    """
+    return get(location, provider='locationiq', **kwargs)
 
 
 def postal(location, **kwargs):
