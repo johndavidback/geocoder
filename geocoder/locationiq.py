@@ -42,7 +42,15 @@ class LocationIQ(Base):
 
     @property
     def lng(self):
-        return self.parse['lng']
+        return self.parse['lon']
+
+    @property
+    def latlng(self):
+        return [self.lat, self.lng]
+
+    @property
+    def bbox(self):
+        return self.parse['boundingbox']
 
     @property
     def importance(self):
